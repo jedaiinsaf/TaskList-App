@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>✏️ Modifier Tâche</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>✏️ Modifier Tâche</h1>
+
+    <form action="/edit/<%= task.id %>" method="POST" class="edit-task-form">
+      <div class="form-group">
+        <input type="text" name="title" value="<%= task.title %>" required />
+      </div>
+      <div class="form-group">
+        <textarea name="description"><%= task.description %></textarea>
+      </div>
+      <div class="form-group">
+        <select name="status">
+          <option value="To Do" <%= task.status === 'To Do' ? 'selected' : '' %>>🕒 À faire</option>
+          <option value="In Progress" <%= task.status === 'In Progress' ? 'selected' : '' %>>🔄 En cours</option>
+          <option value="Done" <%= task.status === 'Done' ? 'selected' : '' %>>✅ Terminé</option>
+        </select>
+      </div>
+      <button type="submit">💾 Enregistrer</button>
+    </form>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="/">← Retour</a>
+    </div>
+  </div>
+</body>
+</html>
+

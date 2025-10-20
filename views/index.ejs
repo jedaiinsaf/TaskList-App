@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task App</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Task List</h1>
+    <a href="/add">+ Add Task</a>
+    <ul>
+      <% tasks.forEach(task => { %>
+        <li>
+          <strong><%= task.title %></strong><br>
+          <div><%= task.description %></div>
+          <div class="status">Status: <%= task.status %></div>
+          <div>
+            <a href="/edit/<%= task.id %>">✏️ Edit</a>
+            <a href="/delete/<%= task.id %>">🗑️ Delete</a>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</body>
+</html>
